@@ -16,8 +16,9 @@
 	<description>Demo project for Spring Boot</description>
     <modules>
         <module>BookService</module>
-		<module>BookService/untitled</module>
 		<module>LibraryService</module>
+		<module>EurekaServer</module>
+		<module>EurekaServer</module>
 
 	</modules>
     <properties>
@@ -38,7 +39,20 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>2022.0.3</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
 		<plugins>

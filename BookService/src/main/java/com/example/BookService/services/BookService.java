@@ -27,7 +27,7 @@ public class BookService {
     public void createBook(Book book) {
         bookRepository.saveAndFlush(book);
         restTemplate.getForObject(
-                "http://localhost:8081/library-book/{bookId}",
+                "http://LibraryService/library-book/{bookId}",
                 Book.class,
                 book.getId()
         );
