@@ -19,10 +19,25 @@ services:
       # Where our data will be persisted
     volumes:
       - my-db:/var/lib/mysql
+#  rabbitmq:
+#    image: rabbitmq:3.9.11-management-alpine
+#    container_name: rabbitmq
+#    ports:
+#      - "5672:5672"
+#      - "15672:15672"
   rabbitmq:
-    image: rabbitmq:3.9.11-management-alpine
-    container_name: rabbitmq
-    ports:
+  image: rabbitmq:latest
+  container_name: rabbitmq
+  hostname: rabbitmq
+  restart: unless-stopped
+  environment:
+  TZ: Europe/Moscow
+  RABBITMQ_DEFAULT_USER: rab
+  RABBITMQ_DEFAULT_PASS: 1234
+  RABBITMQ_DEFAULT_VHOST: vhost
+  volumes:
+      - ./rabbitmq:/var/lib/rabbitmq￼
+  ports:
       - "5672:5672"
       - "15672:15672"
 # Names our volume

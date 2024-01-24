@@ -26,11 +26,11 @@ public class BookService {
 
     public void createBook(Book book) {
         bookRepository.saveAndFlush(book);
-        restTemplate.getForObject(
-                "http://LibraryService/library-book/{bookId}",
-                Book.class,
-                book.getId()
-        );
+//        restTemplate.getForObject(
+//                "http://LibraryService/library-book/{bookId}",
+//                Book.class,
+//                book.getId()
+//        );
     }
 
     public void deleteById(int id) {
